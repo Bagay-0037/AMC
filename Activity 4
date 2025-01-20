@@ -1,0 +1,59 @@
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("Japheth Mateo D. Bagay");
+  
+  const bodyText3 = '    So we finished the project on time and it meets the requirement to passed the subject. That is a huge experience for me cause it improves my social skills and programming skills.Hopefully we can continue the project in Capstone 1.';
+
+  const onPressTitle = () => {
+    setTitleText("Bagay Journey [pressed]");
+  };
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text>     Hi There!, My name is 
+            <Text style={styles.highlightedText}> Japheth Mateo Bagay</Text>
+            <Text> and Im the main programmer in System Architecture 1 and 2 in the group
+              <Text style={styles.highlightedText}> QUADCORE</Text> 
+              <Text> We have 4 members and thats the primary reason of the Group name(QUAD). As I said, Im the main programmer so I did mostly all of the context of the website we made, our website is all about
+                <Text style={styles.highlightedText}>Attendance Monitoring System</Text>
+              </Text>
+            </Text>
+          </Text>
+          {'\n'}
+          {'\n'}
+          <Text numberOfLines={100}>{bodyText3}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  highlightedText: {
+    fontSize: 16,
+    backgroundColor: 'yellow',
+    fontWeight: 'bold',
+  }
+});
+
+export default TextInANest;
