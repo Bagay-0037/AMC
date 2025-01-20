@@ -1,0 +1,46 @@
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("Japheth Mateo D. Bagay");
+  const bodyText = '     Hi There!, My name is Japheth Mateo Bagay and I"m the main programmer in System Architecture 1 and 2 in the group QUADCORE. We have 4 members and thats the primary reason of the Group name(QUAD). As I said, Im the main programmer so I did mostly all of the context of the  website we made, our website is all about Attendance Monitoring';
+  const bodyText2 = '    So we finished the project on time and it meets the requirement to passed the subject. That is a huge experience for me cause it improves my social skills and programming skills.Hopefully we can continue the project in Capstone 1.';
+
+  const onPressTitle = () => {
+    setTitleText("Bagay Journey [pressed]");
+  };
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text numberOfLines={100}>{bodyText}</Text>
+          {'\n'}
+          {'\n'}
+          <Text numberOfLines={100}>{bodyText2}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+});
+
+export default TextInANest;
